@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap");
 * {
   box-sizing: border-box;
   padding: 0;
@@ -10,23 +11,93 @@
   --primary-light: rgba(92, 92, 95);
   --secondary-orange: rgba(255, 159, 10);
 }
+html {
+  font-family: "Google Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 00;
+  font-style: normal;
+  font-variation-settings: "GRAD" 0;
+}
 body {
+  display: flex;
   background-color: var(--black);
   color: var(--white);
+  align-items: center;
+  justify-content: center;
 }
 
 /* *calculator */
 .calculator__body {
+  display: flex;
+  width: 350px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10rem;
 }
 .calculator__display {
+  width: 100%;
+  height: 75px;
+  text-align: right;
+  font-size: 5rem;
+  margin-bottom: 1.75rem;
 }
 .calculator__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 .button {
   display: flex;
-  width: 50px;
-  height: 50px;
+  flex: 1 0 75px;
+  aspect-ratio: 1/1;
   align-items: center;
   justify-content: center;
   background-color: var(--primary-dark);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  letter-spacing: 1.5px;
+  padding: 1rem;
+}
+.button:hover {
+  filter: brightness(1.2);
+}
+.button:active,
+.button:focus {
+  transition: all ease-in-out 0.1s;
+  animation: bubble 0.2s ease-in-out forwards;
+}
+@keyframes bubble {
+  0% {
+  }
+  60% {
+    filter: brightness(1.45);
+
+    transform: scale(1.25);
+  }
+  100% {
+    filter: brightness(1.4);
+
+    transform: scale(1.2);
+  }
+}
+.action {
+  background-color: var(--primary-light);
+}
+.operator {
+  background-color: var(--secondary-orange);
+}
+.number {
+  background-color: var(--primary-dark);
+}
+.dark {
+  background-color: var(--primary-dark);
+}
+.inactive:hover {
+  filter: brightness(1);
+}
+.inactive:active,
+.inactive:focus {
+  transition: all ease-in-out 0.1s;
+  animation: none;
 }
