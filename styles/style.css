@@ -58,14 +58,19 @@ body {
   font-size: 1.5rem;
   letter-spacing: 1.5px;
   padding: 1rem;
+  transition: all 0.15s ease-in-out;
+  /* ? user-select - prevent's user from selecting */
+  user-select: none;
 }
 .button:hover {
   filter: brightness(1.2);
+  cursor: grab;
 }
 .button:active,
 .button:focus {
   transition: all ease-in-out 0.1s;
   animation: bubble 0.2s ease-in-out forwards;
+  cursor: grabbing;
 }
 @keyframes bubble {
   0% {
@@ -84,7 +89,8 @@ body {
 .action {
   background-color: var(--primary-light);
 }
-.operator {
+.operator,
+.equals {
   background-color: var(--secondary-orange);
 }
 .number {
