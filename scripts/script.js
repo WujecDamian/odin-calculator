@@ -32,7 +32,11 @@ function substract (a, b) {
   console.log(a - b)
   num1 = a - b
   if ((a - b).toFixed(3) <= 99999999) {
-    return (a - b).toFixed(3)
+    if (num1.toString().includes('.') || num2.toString().includes('.')) {
+      return (a - b).toFixed(3)
+    } else {
+      return a - b
+    }
   } else {
     return (a - b).toPrecision(4)
   }
@@ -41,7 +45,11 @@ function multiply (a, b) {
   console.log(a * b)
   num1 = a * b
   if ((a * b).toFixed(3) <= 99999999) {
-    return (a * b).toFixed(3)
+    if (num1.toString().includes('.') || num2.toString().includes('.')) {
+      return (a * b).toFixed(3)
+    } else {
+      return a * b
+    }
   } else {
     return (a * b).toPrecision(4)
   }
@@ -51,7 +59,11 @@ function divide (a, b) {
     console.log(a / b)
     num1 = a / b
     if ((a / b).toFixed(3) <= 99999999) {
-      return (a / b).toFixed(3)
+      if (num1.toString().includes('.') || num2.toString().includes('.')) {
+        return (a / b).toFixed(3)
+      } else {
+        return a / b
+      }
     } else {
       return (a / b).toPrecision(4)
     }
@@ -91,20 +103,25 @@ numbers.forEach(element => {
       numbers[10].innerText = '.'
     }
     if (operator === '') {
-      displayText.innerText += element.innerText
-      num1 = parseFloat(displayText.innerText)
+      if (num1 <= 9999999) {
+        displayText.innerText += element.innerText
+        num1 = parseFloat(displayText.innerText)
+      }
     } else {
       if (num2 === 0) {
         displayText.innerText += element.innerText
         num2 = parseFloat(displayText.innerText)
       } else {
-        displayText.innerText += element.innerText
-        num2 = parseFloat(displayText.innerText)
+        if (num2 <= 9999999) {
+          displayText.innerText += element.innerText
+          num2 = parseFloat(displayText.innerText)
+        }
       }
     }
     console.log(num1, num2, operator)
   })
 })
+
 /* get operator */
 let operators = document.querySelectorAll('.operator')
 operators.forEach(element => {
