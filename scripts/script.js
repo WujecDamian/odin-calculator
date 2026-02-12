@@ -5,6 +5,8 @@ let num1 = 0
 let num2 = 0
 let operator = ''
 clearBtn.addEventListener('click', () => {
+  clearBtn.innerText = 'AC'
+
   displayText.innerText = ''
   num1 = 0
   num2 = 0
@@ -12,18 +14,22 @@ clearBtn.addEventListener('click', () => {
 })
 function add (a, b) {
   console.log(a + b)
+  num1 = a + b
   return a + b
 }
 function substract (a, b) {
   console.log(a - b)
+  num1 = a - b
   return a - b
 }
 function multiply (a, b) {
   console.log(a * b)
+  num1 = a * b
   return a * b
 }
 function divide (a, b) {
   console.log(a / b)
+  num1 = a / b
   return a / b
 }
 
@@ -65,6 +71,7 @@ operators.forEach(element => {
         operator = element.innerText
         console.log(num1, num2, operator)
       }
+      clearBtn.innerText = 'C'
     }
     displayText.innerText = ''
   })
