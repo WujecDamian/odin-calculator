@@ -28,21 +28,28 @@ function multiply (a, b) {
   return a * b
 }
 function divide (a, b) {
-  console.log(a / b)
-  num1 = a / b
-  return a / b
+  if (b > 0) {
+    console.log(a / b)
+    num1 = a / b
+    return a / b
+  } else {
+    console.log('Divide by 0? Really?')
+    return 'Really?🤦‍♂️'
+  }
 }
 
 let equals = document.querySelector('.equals')
 equals.addEventListener('click', () => {
-  if (operator == '÷') {
-    displayText.innerText = divide(num1, num2)
-  } else if (operator === '✕') {
-    displayText.innerText = multiply(num1, num2)
-  } else if (operator === '+') {
-    displayText.innerText = add(num1, num2)
-  } else if (operator === '-') {
-    displayText.innerText = substract(num1, num2)
+  if (num1 != 0 && num2 != 0 && operator != '') {
+    if (operator == '÷') {
+      displayText.innerText = divide(num1, num2)
+    } else if (operator === '✕') {
+      displayText.innerText = multiply(num1, num2)
+    } else if (operator === '+') {
+      displayText.innerText = add(num1, num2)
+    } else if (operator === '-') {
+      displayText.innerText = substract(num1, num2)
+    }
   }
 })
 
@@ -54,9 +61,11 @@ numbers.forEach(element => {
       displayText.innerText += element.innerText
       num1 = parseInt(displayText.innerText)
     } else {
-      displayText.innerText += element.innerText
-
-      num2 = parseInt(displayText.innerText)
+      if (num2 === 0) {
+        displayText.innerText += element.innerText
+        num2 = parseInt(displayText.innerText)
+      } else {
+      }
     }
     console.log(num1, num2, operator)
   })
