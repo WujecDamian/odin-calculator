@@ -138,6 +138,7 @@ operators.forEach(element => {
     }
     if (num2 != 0) {
       operate()
+      num2 = 0
       displayText.innerText = element.innerText
       operator = element.innerText
       displayTextSmall.innerText = `${num1} ${operator}`
