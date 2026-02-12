@@ -35,6 +35,12 @@ body {
   justify-content: center;
   margin: 10rem;
 }
+@media screen and (max-width: 769px) {
+  .calculator__body {
+    margin: 0rem;
+  }
+}
+
 .calculator__display {
   display: flex;
   flex-direction: column;
