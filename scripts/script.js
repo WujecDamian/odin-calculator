@@ -89,6 +89,7 @@ function operate () {
       displayText.innerText = substract(num1, num2)
     }
     num2 = 0
+    operator = ''
   }
 }
 let equals = document.querySelector('.equals')
