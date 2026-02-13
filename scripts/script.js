@@ -88,6 +88,7 @@ function operate () {
       displayTextSmall.innerText = `${num1} ${operator} ${num2} =`
       displayText.innerText = substract(num1, num2)
     }
+    num2 = 0
   }
 }
 let equals = document.querySelector('.equals')
